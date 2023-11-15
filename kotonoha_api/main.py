@@ -38,9 +38,6 @@ class UserInput(BaseModel):
     name: str
     password: str
 
-class ConversationInput(BaseModel):
-    user_id: str
-
 class LoginInput(BaseModel):
     email: str
     password: str
