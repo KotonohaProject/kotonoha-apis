@@ -43,7 +43,7 @@ async def root() -> dict:
 
 client_id ="472046951981-seojqboeo7cvjielt2dk1837lmtn6blc.apps.googleusercontent.com"
 client_secret = "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"
-redirect_uri = "http://localhost:8000/intermediate"
+redirect_uri = "https://prd-kotonohaapi-lgigdnjiva-an.a.run.app/intermediate"
 openai_redirect_uri = "test"
 
 @app.get("/authorize")
