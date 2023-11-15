@@ -14,13 +14,11 @@ import sys
 
 client = OpenAI()
 
-ASSISTANT_ID = "asst_DBYwpIgQOS2gHV2edTNwlZ1s"
-
 #cred = credentials.Certificate("kotonoha-hack-firebase-adminsdk-6q5qk-5b0b0d0d1e.json")
 #initialize_app(cred)
 initialize_app()
 db = firestore.client()
-storage = storage.bucket("speaking-53cb7.appspot.com")
+#storage = storage.bucket("speaking-53cb7.appspot.com")
 
 app = FastAPI()
 app.add_middleware(
@@ -31,7 +29,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-redirect_uri = app.url_path_for("intermediate")
 
 class UserInput(BaseModel):
     name: str
@@ -44,8 +41,9 @@ class ConversationInput(BaseModel):
 async def root() -> dict:
     return {"message": "Hello World"}
 
-client_id ="test"
-client_secret = "test"
+client_id ="472046951981-seojqboeo7cvjielt2dk1837lmtn6blc.apps.googleusercontent.com"
+client_secret = "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"
+redirect_uri = app.url_path_for("intermediate")
 openai_redirect_uri = "test"
 
 @app.get("/authorize")
