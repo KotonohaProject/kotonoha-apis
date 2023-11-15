@@ -44,7 +44,7 @@ async def root() -> dict:
 client_id ="472046951981-seojqboeo7cvjielt2dk1837lmtn6blc.apps.googleusercontent.com"
 client_secret = "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"
 redirect_uri = "https://prd-kotonohaapi-lgigdnjiva-an.a.run.app/intermediate"
-openai_redirect_uri = "test"
+openai_redirect_uri = "https://chat.openai.com/aip/g-08cf6e83881a286b794aa9fc7b96ef3789efc587/oauth/callback"
 
 @app.get("/authorize")
 async def authorize(request: Request):
