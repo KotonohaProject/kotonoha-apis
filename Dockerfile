@@ -20,4 +20,4 @@ RUN poetry install --no-root
 
 COPY ./kotonoha_api ./kotonoha_api
 
-CMD exec uvicorn kotonoha_hack.main:app --host 0.0.0.0 --port ${PORT} --workers 1
+CMD exec uvicorn kotonoha_api.main:app --host 0.0.0.0 --port ${PORT} --workers 1
