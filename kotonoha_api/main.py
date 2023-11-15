@@ -13,6 +13,7 @@ import requests
 import sys
 import hashlib
 import uuid
+import yaml
 
 client = OpenAI()
 
@@ -43,6 +44,15 @@ class ConversationInput(BaseModel):
 class LoginInput(BaseModel):
     email: str
     password: str
+
+def read_schema_file():
+    with open('schema.yml', 'r') as file:
+        return yaml.safe_load(file)
+
+@app.get("/schema.yml")
+def schema():
+    schema_content = read_schema_file()
+    return schema_content
 
 
 
