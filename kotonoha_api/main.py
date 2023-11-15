@@ -43,7 +43,7 @@ async def root() -> dict:
 
 client_id ="472046951981-seojqboeo7cvjielt2dk1837lmtn6blc.apps.googleusercontent.com"
 client_secret = "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"
-redirect_uri = app.url_path_for("intermediate")
+redirect_uri = "http://localhost:8000/intermediate"
 openai_redirect_uri = "test"
 
 @app.get("/authorize")
@@ -51,7 +51,6 @@ async def authorize(request: Request):
     state = request.query_params.get('state')
 
     scope = "openid email profile"
-    redirect_uri = app.url_path_for("intermediate")
 
     # Construct the Google OAuth URL with the state parameter and an intermediate redirect_uri
     params = {
