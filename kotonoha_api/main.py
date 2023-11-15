@@ -14,12 +14,18 @@ import sys
 import hashlib
 import uuid
 import yaml
+import dotenv
+import os
+
+dotenv.load_dotenv()
 
 client = OpenAI()
 
-#cred = credentials.Certificate("kotonoha-hack-firebase-adminsdk-6q5qk-5b0b0d0d1e.json")
-#initialize_app(cred)
-initialize_app()
+if os.getenv("ENVIRONEMENT") == "local":
+    cred = credentials.Certificate("kotonoha_api/firebase_key.json")
+    initialize_app(cred)
+else:
+    initialize_app()
 db = firestore.client()
 #storage = storage.bucket("speaking-53cb7.appspot.com")
 
@@ -43,8 +49,9 @@ class LoginInput(BaseModel):
     password: str
 
 def read_schema_file():
-    with open('schema.yml', 'r') as file:
-        return yaml.safe_load(file)
+    with open('kotonoha_api/schema.yml', 'r') as file:
+        # return the content as text
+        return file.read()
 
 @app.get("/schema.yml")
 def schema():
