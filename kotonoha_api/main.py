@@ -257,7 +257,7 @@ def add_role_play(role_play_input: RolePlayInput):
     role_plays = role_play_dict["role_plays"]
     for role_play in role_plays:
         role_play_id = uuid.uuid4().hex[:8]
-        role_play["role_play_id"] = role_play_id
+        role_playr["role_play_id"] = role_play_id
         role_play["date"] = datetime.datetime.now()
         role_play["finished"] = False
         db.collection("users").document(role_play_input.user_id).collection("role_plays").document(role_play_id).set(role_play)
@@ -286,7 +286,13 @@ def set_current_role_play(set_role_play_input: SetRolePlayInput):
 
     return {"message": "success"}
 
-
+@app.get("/current_word_review")
+def get_current_word_review(user_id: str):
+    if not db.collection("users").document(user_id).get().exists:
+        raise HTTPException(status_code=401, detail="User not found")
+    user = db.collection("users").document(user_id).get().to_dict()
+    word = db.collection("users").document(user_id).collection("words_active").document(user["current_word_review"]).get().to_dict()
+    return {"word": word}
 
 @app.post("/mistakes")
 def add_mistake(mistake_input: MistakeInput):
