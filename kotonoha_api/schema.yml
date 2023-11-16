@@ -4,7 +4,7 @@ info:
   title: User Account Management API
   version: "1.0.0"
 servers:
-  - url: [Your API Base URL Here]
+  - url: https://5644-67-207-107-182.ngrok-free.app
 
 paths:
   /login:
@@ -18,7 +18,17 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/LoginInput"
+              # write schema here
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
 
   /signup:
     post:
@@ -32,13 +42,13 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/UserInput"
+
 components:
   schemas:
     UserInput:
       type: object
       required:
         - email
-        - name
         - password
       properties:
         email:
