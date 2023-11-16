@@ -256,6 +256,7 @@ def get_learning_words(user_id: str):
         raise HTTPException(status_code=401, detail="User not found")
     words = db.collection("users").document(user_id).collection("words_learning").stream()
     words = [word.to_dict() for word in words]
+    #
     return {"words": words}
 
 @app.get("/words/active")
@@ -264,6 +265,7 @@ def get_active_words(user_id: str):
         raise HTTPException(status_code=401, detail="User not found")
     words = db.collection("users").document(user_id).collection("active").stream()
     words = [word.to_dict() for word in words]
+    words = words[:10]
     return {"words": words}
 
 @app.get("/essays")
