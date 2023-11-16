@@ -65,7 +65,7 @@ class EssayInput(BaseModel):
 
 class Conversation(BaseModel):
     content: str
-    role: Literal["User", "GPT"]
+    role: str
 
 class ConversationInput(BaseModel):
     user_id: str
