@@ -163,7 +163,7 @@ def add_word_to_learning(word: WordInput):
     word_dict["date"] = datetime.datetime.now()
     word_dict["word"] = word_dict["word"].lower()
 
-    db.collection("users").document(word.user_id).collection("words_learning").document(word.word).set(word_dict)
+    db.collection("users").document(word.user_id).collection("words_learning").document(word_dict["word"]).set(word_dict)
     return {"message": "success"}
 
 @app.get("/words/learning")
