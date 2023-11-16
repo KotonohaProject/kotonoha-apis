@@ -254,7 +254,7 @@ def set_current_role_play(set_role_play_input: SetRolePlayInput):
 def get_learning_words(user_id: str):
     if not db.collection("users").document(user_id).get().exists:
         raise HTTPException(status_code=401, detail="User not found")
-    words = db.collection("users").document(user_id).collection("learning").stream()
+    words = db.collection("users").document(user_id).collection("words_learning").stream()
     words = [word.to_dict() for word in words]
     return {"words": words}
 
