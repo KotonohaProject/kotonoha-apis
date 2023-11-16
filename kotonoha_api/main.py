@@ -89,7 +89,7 @@ class SetRolePlayInput(BaseModel):
 class Mistake(BaseModel):
     mistake_title: str
     mistake_explanation: str
-    mistake_type: Literal["grammar", "spelling"]
+    mistake_type: str
 
 class MistakeInput(BaseModel):
     user_id: str
