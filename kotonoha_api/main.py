@@ -257,7 +257,7 @@ def add_role_play(role_play_input: RolePlayInput):
     role_plays = role_play_dict["role_plays"]
     for role_play in role_plays:
         role_play_id = uuid.uuid4().hex[:8]
-        role_play_dict["role_play_id"] = role_play_id
+        role_play["role_play_id"] = role_play_id
         role_play["date"] = datetime.datetime.now()
         role_play["finished"] = False
         db.collection("users").document(role_play_input.user_id).collection("role_plays").document(role_play_id).set(role_play)
