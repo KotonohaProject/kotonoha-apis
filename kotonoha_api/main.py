@@ -291,7 +291,7 @@ def get_current_word_review(user_id: str):
     if not db.collection("users").document(user_id).get().exists:
         raise HTTPException(status_code=401, detail="User not found")
     user = db.collection("users").document(user_id).get().to_dict()
-    word = db.collection("users").document(user_id).collection("words_active").document(user["current_word_review"]).get().to_dict()
+    word = db.collection("users").document(user_id).collection("words_learning").document(user["current_word_review"]).get().to_dict()
     return {"word": word}
 
 @app.post("/mistakes")
