@@ -185,9 +185,9 @@ def add_word_to_active(word: WordInput):
     word_dict["date"] = datetime.datetime.now()
     word_dict["word"] = word_dict["word"].lower()
 
-    db.collection("users").document(word.user_id).collection("words_active").document(word.word).set(word_dict)
+    db.collection("users").document(word.user_id).collection("words_active").document(word_dict["word"]).set(word_dict)
     # check if the word is in learning, then delete it
-    db.collection("users").document(word.user_id).collection("words_learning").document(word.word).delete()
+    db.collection("users").document(word.user_id).collection("words_learning").document(word_dict["word"]).delete()
     return {"message": "success"}
 
 
