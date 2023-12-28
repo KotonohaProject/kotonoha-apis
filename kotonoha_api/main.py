@@ -156,6 +156,10 @@ async def save_user_role_play(
             }
         ))
     
+
+
+
+
     scenario_document = db.collection("scenarios").document(role_play_request.scenario_id)
     if not scenario_document.get().exists:
         # use current scneario
@@ -188,3 +192,10 @@ async def save_essay_review(
 ):
     print(essay_request)
     return {"status": "OK"}
+
+
+@app.get("/privacy_policy")
+async def get_privacy_policy():
+    # return privacy_policy.txt as string
+    policy_text = Path("privacy_policy.txt").read_text()
+    return policy_text

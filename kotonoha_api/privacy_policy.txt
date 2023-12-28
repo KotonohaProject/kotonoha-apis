@@ -1,0 +1,31 @@
+Effective Date: 2023/12/27
+
+1. Introduction
+
+Welcome to Koto! We are committed to protecting your privacy and handling your data in an open and transparent manner.
+
+2. Information We Collect
+
+When you use Koto, we collect the following information:
+
+Email Address: We use Google Authentication to securely log you into our service.
+Name: We collect your name to personalize your experience on our platform.
+3. Use of Your Information
+
+The information we collect is used to:
+
+Provide, operate, and maintain our services.
+Improve, personalize, and expand our services.
+Understand and analyze how you use our services.
+Develop new products, services, features, and functionality.
+4. Sharing Your Information
+
+We take your privacy seriously and do not share your email address or name with third parties, except as required by law.
+
+5. Data Security
+
+We implement a variety of security measures to maintain the safety of your personal information.
+
+6. Changes to This Policy
+
+We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page.
