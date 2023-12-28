@@ -194,7 +194,7 @@ async def save_essay_review(
     return {"status": "OK"}
 
 
-@app.get("/privacy_policy")
+@app.get("/privacy-policy")
 async def get_privacy_policy():
     # return privacy_policy.txt as string
     policy_text = Path("privacy_policy.txt").read_text()
