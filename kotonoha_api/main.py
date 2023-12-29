@@ -117,7 +117,7 @@ async def get_user_role_play(authorization: str = Header()):
     return result
 
 
-@app.post("/role_plays")
+@app.post("/role-plays")
 async def save_user_role_play(
     role_play_request: RolePlayRequestBody, authorization: str = Header()
 ):
