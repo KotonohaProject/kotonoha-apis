@@ -1,7 +1,7 @@
 import requests
 from kotonoha_api.firebase_utils import db
 
-def get_user_data(access_token):
+def get_user_data(authorization: str):
     """
     {
         id: '108493981573305913629',
@@ -16,13 +16,13 @@ def get_user_data(access_token):
     """
     url = 'https://www.googleapis.com/oauth2/v1/userinfo'
     headers = {
-        'Authorization': f'Bearer {access_token}'
+        'Authorization': authorization
     }
     res = requests.get(url, headers=headers)
     return res.json()
 
-def get_user_collection(access_token):
-    email = get_user_data(access_token)['email']
+def get_user_collection(authorization: str):
+    email = get_user_data(authorization)['email']
     # search for user where email field is equal to email
     users = db.collection('users').where('email', '==', email).get() # before doing .get(), it's a Query object
     if len(users) == 0:
