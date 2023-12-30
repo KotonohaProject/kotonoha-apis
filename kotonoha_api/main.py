@@ -92,7 +92,7 @@ class EssayRequestBody(BaseModel):
 
 
 # get authentication header
-@app.get("/role_plays")
+@app.get("/role-plays")
 async def get_user_role_play(authorization: str = Header()):
     # Process request here
     try:
